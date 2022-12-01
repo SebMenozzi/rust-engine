@@ -1,0 +1,23 @@
+[package]
+name = "renderer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ash = "0.35"
+ash-window = "0.9"
+winit = "0.26"
+structopt = "0.3.20"
+cfg-if = "1.0.0"
+spirv-builder = { git = "https://github.com/EmbarkStudios/rust-gpu" }
+shader-shared = { path = "../shader/shared" }
+shader-sky = { path = "../shader/sky" }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+ash-molten = { version = "0.12.0", features = ["pre-built"] }
+
+# See rustc_codegen_spirv/Cargo.toml for details on these features
+[features]
+default = ["use-compiled-tools"]
+use-installed-tools = ["spirv-builder/use-installed-tools"]
+use-compiled-tools = ["spirv-builder/use-compiled-tools"]

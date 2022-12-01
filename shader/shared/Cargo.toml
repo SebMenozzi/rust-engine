@@ -1,0 +1,8 @@
+[package]
+name = "shader-shared"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+spirv-std = { git = "https://github.com/EmbarkStudios/rust-gpu", features = ["glam"] }
+bytemuck = { version = "1.6.3", features = ["derive"] }

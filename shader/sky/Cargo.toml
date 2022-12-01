@@ -1,0 +1,11 @@
+[package]
+name = "shader-sky"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["lib", "dylib"]
+
+[dependencies]
+shader-shared = { path = "../shared" }
+spirv-std = { git = "https://github.com/EmbarkStudios/rust-gpu", features = ["glam"] }
